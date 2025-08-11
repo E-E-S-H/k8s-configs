@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: yourdockerhubusername/django-student-app
+  repository: eeshulu/django-student-app
   tag: "latest"
   pullPolicy: Always
 
