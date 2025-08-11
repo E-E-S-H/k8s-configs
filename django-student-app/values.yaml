@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: eeshulu/django-student-app
-  tag: "latest"
+  tag: "e3f66cbfbf4ad34c4971748f0999a07d272197bd"
   pullPolicy: Always
 
 service:
