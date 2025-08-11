@@ -1,0 +1,37 @@
+replicaCount: 2
+
+image:
+  repository: yourdockerhubusername/django-student-app
+  tag: "latest"
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  className: "traefik"  # k3s uses traefik by default
+  annotations: {}
+  hosts:
+    - host: django-app.local
+      paths:
+        - path: /
+          pathType: Prefix
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+env:
+  - name: DEBUG
+    value: "False"
+  - name: ALLOWED_HOSTS
+    value: "*"
+
+autoscaling:
+  enabled: false
